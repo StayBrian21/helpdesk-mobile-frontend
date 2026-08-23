@@ -36,6 +36,13 @@ export default function DashboardScreen() {
                 <Text style={styles.crearButtonText}>+ Crear ticket</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity
+                style={styles.misTicketsButton}
+                onPress={() => router.push("/mis-tickets")}
+            >
+                <Text style={styles.misTicketsButtonText}>Mis tickets</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
                 <Text style={styles.buttonText}>Cerrar sesión</Text>
             </TouchableOpacity>
@@ -74,9 +81,27 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         paddingVertical: 14,
         paddingHorizontal: 32,
-        marginBottom: 16,
+        marginBottom: 12,
+        width: "100%",
+        alignItems: "center",
     },
     crearButtonText: {
+        color: colors.textPrimary,
+        fontFamily: typography.fontFamily.bodyBold,
+        fontSize: typography.size.md,
+    },
+    misTicketsButton: {
+        backgroundColor: colors.surface,
+        borderWidth: 1,
+        borderColor: colors.border,
+        borderRadius: 8,
+        paddingVertical: 14,
+        paddingHorizontal: 32,
+        marginBottom: 16,
+        width: "100%",
+        alignItems: "center",
+    },
+    misTicketsButtonText: {
         color: colors.textPrimary,
         fontFamily: typography.fontFamily.bodyBold,
         fontSize: typography.size.md,
