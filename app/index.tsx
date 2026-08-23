@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useState } from "react";
 import {
     Alert,
@@ -9,6 +10,7 @@ import {
 } from "react-native";
 import { api } from "../constants/api";
 import { colors } from "../constants/colors";
+import { guardarSesion } from "../constants/storage";
 import { typography } from "../constants/typography";
 
 export default function LoginScreen() {
@@ -25,8 +27,8 @@ export default function LoginScreen() {
         setCargando(true);
         try {
             const respuesta = await api.post("/auth/login", { email, password });
-            console.log("Login exitoso:", respuesta.data);
-            Alert.alert("Bienvenido", `Hola ${respuesta.data.usuario.nombre}`);
+            await guardarSesion(respuesta.data.token, respuesta.data.usuario);
+            router.replace("/dashboard");
         } catch (error: any) {
             const mensaje =
                 error.response?.data?.mensaje || "No se pudo iniciar sesión";
