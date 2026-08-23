@@ -29,6 +29,13 @@ export default function DashboardScreen() {
             </Text>
             <Text style={styles.rol}>Rol: {usuario?.rol}</Text>
 
+            <TouchableOpacity
+                style={styles.crearButton}
+                onPress={() => router.push("/crear-ticket")}
+            >
+                <Text style={styles.crearButtonText}>+ Crear ticket</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
                 <Text style={styles.buttonText}>Cerrar sesión</Text>
             </TouchableOpacity>
@@ -61,6 +68,18 @@ const styles = StyleSheet.create({
         fontSize: typography.size.sm,
         marginTop: 4,
         marginBottom: 32,
+    },
+    crearButton: {
+        backgroundColor: colors.primary,
+        borderRadius: 8,
+        paddingVertical: 14,
+        paddingHorizontal: 32,
+        marginBottom: 16,
+    },
+    crearButtonText: {
+        color: colors.textPrimary,
+        fontFamily: typography.fontFamily.bodyBold,
+        fontSize: typography.size.md,
     },
     button: {
         backgroundColor: colors.surface,

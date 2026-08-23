@@ -39,7 +39,14 @@
           }
         }
       ],
-      "expo-font"
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "HelpDesk Mobile necesita acceso a tus fotos para adjuntar evidencia a tus tickets.",
+          "cameraPermission": "HelpDesk Mobile necesita acceso a tu cámara para tomar fotos de evidencia."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
