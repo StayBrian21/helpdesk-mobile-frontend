@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { api } from "../constants/api";
 import { colors } from "../constants/colors";
+import { registrarParaNotificaciones } from "../constants/notifications";
 import { guardarSesion } from "../constants/storage";
 import { typography } from "../constants/typography";
 
@@ -28,6 +29,7 @@ export default function LoginScreen() {
         try {
             const respuesta = await api.post("/auth/login", { email, password });
             await guardarSesion(respuesta.data.token, respuesta.data.usuario);
+            await registrarParaNotificaciones();
             router.replace("/dashboard");
         } catch (error: any) {
             const mensaje =

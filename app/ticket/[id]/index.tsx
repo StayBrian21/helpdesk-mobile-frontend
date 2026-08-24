@@ -9,10 +9,10 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
-import { api } from "../../constants/api";
-import { colors } from "../../constants/colors";
-import { obtenerUsuario } from "../../constants/storage";
-import { typography } from "../../constants/typography";
+import { api } from "../../../constants/api";
+import { colors } from "../../../constants/colors";
+import { obtenerUsuario } from "../../../constants/storage";
+import { typography } from "../../../constants/typography";
 
 const COLOR_ESTADO: Record<string, string> = {
     abierto: colors.estadoAbierto,
@@ -150,7 +150,7 @@ export default function DetalleTicketScreen() {
             {esTecnico && (
                 <TouchableOpacity
                     style={styles.gestionarButton}
-                    onPress={() => router.push(`/ticket/${id}/gestionar`)}
+                    onPress={() => router.push(`/ticket/${id}/gestionar` as any)}
                 >
                     <Text style={styles.gestionarButtonText}>Gestionar ticket</Text>
                 </TouchableOpacity>

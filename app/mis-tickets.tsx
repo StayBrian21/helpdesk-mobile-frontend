@@ -51,7 +51,7 @@ export default function MisTicketsScreen() {
         return (
             <TouchableOpacity
                 style={styles.card}
-                onPress={() => router.push(`/ticket/${item._id}`)}
+                onPress={() => router.push(`/ticket/${item._id}` as any)}
             >
                 <View style={styles.cardHeader}>
                     <Text style={styles.cardTitulo} numberOfLines={1}>
